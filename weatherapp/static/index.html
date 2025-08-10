@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeatherLux - Premium Weather Intelligence</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="gradient-bg"></div>
+  
+  <header class="header">
+    <div class="header-content">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-info">
+          <h1 class="brand-name">WeatherLux</h1>
+          <span class="brand-tagline">Premium Weather Intelligence</span>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat">
+          <span class="stat-value" id="responseTime">-</span>
+          <span class="stat-label">Response Time</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value status-indicator" id="status">Ready</span>
+          <span class="stat-label">Status</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div class="weather-dashboard">
+      <div class="search-section">
+        <div class="search-header">
+          <h2 class="section-title">Weather Intelligence</h2>
+          <p class="section-subtitle">Get real-time weather insights powered by advanced algorithms</p>
+        </div>
+        
+        <div class="search-controls">
+          <div class="input-container">
+            <input type="text" id="cityInput" placeholder="Enter city name..." class="search-input">
+            <div class="input-decoration"></div>
+          </div>
+          <div class="action-buttons">
+            <button id="getWeatherBtn" class="btn btn-primary">
+              <span class="btn-icon">🌤️</span>
+              Current Weather
+            </button>
+            <button id="getForecastBtn" class="btn btn-secondary">
+              <span class="btn-icon">📊</span>
+              5-Day Forecast
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="results-section">
+        <div class="results-header">
+          <h3 class="results-title" id="resultsTitle">
+            <span class="results-icon" id="resultsIcon">🌍</span>
+            Weather Data
+          </h3>
+          <div class="results-actions">
+            <button class="action-btn" id="refreshBtn" title="Refresh">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="m3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+            </button>
+            <button class="action-btn" id="copyBtn" title="Copy">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+            </button>
+            <button class="action-btn" id="clearBtn" title="Clear">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path>
+                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div class="results-container">
+          <div id="weatherResult" class="weather-display">
+            <div class="welcome-state">
+              <div class="welcome-animation">
+                <div class="floating-icon">🌤️</div>
+              </div>
+              <h3 class="welcome-title">Welcome to WeatherLux</h3>
+              <p class="welcome-description">
+                Experience premium weather intelligence with lightning-fast data from our Rust-powered backend.
+                Enter any city above to get started.
+              </p>
+              <div class="feature-highlights">
+                <div class="highlight">
+                  <span class="highlight-icon">⚡</span>
+                  <span>Ultra-fast processing</span>
+                </div>
+                <div class="highlight">
+                  <span class="highlight-icon">🌍</span>
+                  <span>Global coverage</span>
+                </div>
+                <div class="highlight">
+                  <span class="highlight-icon">📈</span>
+                  <span>Detailed analytics</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="loading-state" id="loadingState">
+            <div class="loading-animation">
+              <div class="loading-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <p class="loading-text">Fetching weather data...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 WeatherLux - Powered by Rust & Advanced Analytics</p>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
